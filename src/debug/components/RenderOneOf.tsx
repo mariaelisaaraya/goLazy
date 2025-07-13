@@ -124,7 +124,7 @@ export const renderOneOf = ({
             <option
               id={oneOf?.title}
               value={oneOf?.title}
-              key={`${oneOf?.title}-${index}`}
+              key={oneOf?.id || oneOf?.key || `${oneOf}-${index}`}
             >
               {oneOf?.title}
             </option>
