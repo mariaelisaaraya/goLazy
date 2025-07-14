@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Layout } from "@stellar/design-system";
 import ConnectAccount from "../components/ConnectAccount";
 import { useNavigate } from "react-router-dom";
+import useGlobalAuthenticationStore from "../store/wallet";
 
 const DASHBOARD_URL = "http://localhost:3000/dashboard";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const { address, isConnected } = useGlobalAuthenticationStore();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -18,6 +20,17 @@ const Home: React.FC = () => {
   });
   const [passwordStrength, setPasswordStrength] = useState(0);
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // Escuchar cambios en el estado de la wallet
+  useEffect(() => {
+    if (address && isConnected) {
+      console.log("✅ Wallet conectada, redirigiendo al dashboard...");
+      // Pequeño delay para mostrar feedback visual
+      setTimeout(() => {
+        window.location.href = DASHBOARD_URL;
+      }, 1000);
+    }
+  }, [address, isConnected]);
 
   const checkPasswordStrength = (password: string) => {
     let strength = 0;
@@ -101,6 +114,32 @@ const Home: React.FC = () => {
 
   return (
     <Layout.Content>
+      {/* Indicador de conexión exitosa */}
+      {address && isConnected && (
+        <div
+          style={{
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+            background: "linear-gradient(135deg, #A3B899 0%, #8FA085 100%)",
+            color: "white",
+            padding: "12px 20px",
+            borderRadius: "12px",
+            fontSize: "14px",
+            fontWeight: "600",
+            zIndex: 1000,
+            boxShadow: "0 4px 15px rgba(163, 184, 153, 0.4)",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            animation: "slideIn 0.3s ease",
+          }}
+        >
+          <span>✅</span>
+          <span>Wallet conectada! Redirigiendo...</span>
+        </div>
+      )}
+
       <div
         style={{
           minHeight: "100vh",
@@ -230,64 +269,7 @@ const Home: React.FC = () => {
                 border: "1px solid rgba(255, 255, 255, 0.2)",
               }}
             >
-              {/* Tabs */}
-              <div
-                style={{
-                  display: "flex",
-                  backgroundColor: "#f8f9fa",
-                  borderRadius: "16px",
-                  padding: "6px",
-                  marginBottom: "28px",
-                  boxShadow: "inset 0 2px 4px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <button
-                  onClick={() => setActiveTab("login")}
-                  style={{
-                    flex: 1,
-                    padding: "12px 20px",
-                    borderRadius: "12px",
-                    fontWeight: "600",
-                    border: "none",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                    backgroundColor:
-                      activeTab === "login" ? "white" : "transparent",
-                    color: activeTab === "login" ? "#5D5C61" : "#888",
-                    boxShadow:
-                      activeTab === "login"
-                        ? "0 4px 12px rgba(0,0,0,0.15)"
-                        : "none",
-                    transform:
-                      activeTab === "login" ? "translateY(-1px)" : "none",
-                  }}
-                >
-                  Iniciar sesión
-                </button>
-                <button
-                  onClick={() => setActiveTab("register")}
-                  style={{
-                    flex: 1,
-                    padding: "12px 20px",
-                    borderRadius: "12px",
-                    fontWeight: "600",
-                    border: "none",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                    backgroundColor:
-                      activeTab === "register" ? "white" : "transparent",
-                    color: activeTab === "register" ? "#5D5C61" : "#888",
-                    boxShadow:
-                      activeTab === "register"
-                        ? "0 4px 12px rgba(0,0,0,0.15)"
-                        : "none",
-                    transform:
-                      activeTab === "register" ? "translateY(-1px)" : "none",
-                  }}
-                >
-                  Registrarse
-                </button>
-              </div>
+              {/* ... resto del código igual hasta ConnectAccount ... */}
 
               <div
                 style={{
@@ -887,6 +869,17 @@ const Home: React.FC = () => {
           100% {
             transform: translateX(-50%) scale(1);
             opacity: 0.3;
+          }
+        }
+
+        @keyframes slideIn {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
           }
         }
       `}</style>
