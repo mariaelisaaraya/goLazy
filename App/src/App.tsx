@@ -7,49 +7,7 @@ import Debugger from "./pages/Debugger.tsx";
 
 const AppLayout: React.FC = () => (
   <main>
-    <Layout.Header
-      projectId="My App"
-      projectTitle="My App"
-      contentRight={
-        <>
-          <nav>
-            <NavLink
-              to="/debug"
-              style={{
-                textDecoration: "none",
-              }}
-            >
-              {({ isActive }) => (
-                <Button
-                  variant="tertiary"
-                  size="md"
-                  onClick={() => (window.location.href = "/debug")}
-                  disabled={isActive}
-                >
-                  <Icon.Code02 size="md" />
-                  Debugger
-                </Button>
-              )}
-            </NavLink>
-          </nav>
-          <ConnectAccount />
-        </>
-      }
-    />
     <Outlet />
-    <Layout.Footer>
-      <span>
-        © {new Date().getFullYear()} My App. Licensed under the{" "}
-        <a
-          href="http://www.apache.org/licenses/LICENSE-2.0"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Apache License, Version 2.0
-        </a>
-        .
-      </span>
-    </Layout.Footer>
   </main>
 );
 
