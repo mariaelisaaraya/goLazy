@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "title": "GoLazy",
+    "slogan": "Ahorra con propósito. Gana cumpliendo.",
+    "cta": "Probar ahora"
+  },
+  "howItWorks": {
+    "title": "¿Cómo funciona?",
+    "steps": [
+      {
+        "title": "1. Elegís una meta personal",
+        "desc": "Define tu objetivo personal"
+      },
+      {
+        "title": "2. Hacés un stake en USDC",
+        "desc": "Deposita USDC como compromiso"
+      },
+      {
+        "title": "3. Registrás tu progreso",
+        "desc": "Documenta tu avance diario"
+      },
+      {
+        "title": "4. Si cumplís, recuperás tu dinero + recompensa",
+        "desc": "Dinero + recompensa al cumplir"
+      },
+      {
+        "title": "5. Recibís una imagen única para compartir",
+        "desc": "Imagen única para redes"
+      }
+    ]
+  },
+  "whyItMatters": {
+    "title": "¿Por qué importa?",
+    "paragraph1": "Millones en América Latina no tienen acceso bancario, pero sí tienen sueños.",
+    "paragraph2": "GoLazy convierte tu esfuerzo personal en logros visibles y recompensas reales, democratizando el acceso al ahorro y la motivación financiera.",
+    "paragraph3": "“Millones en América Latina no tienen acceso bancario, pero sí tienen sueños. GoLazy convierte tu esfuerzo personal en logros visibles y recompensas reales.”"
+  },
+  "howWeUseStellar": {
+    "title": "¿Cómo usamos Stellar?",
+    "items": [
+      {
+        "title": "USDC en Stellar",
+        "desc": "Moneda estable para stakes"
+      },
+      {
+        "title": "Contratos Soroban",
+        "desc": "Smart contracts seguros"
+      },
+      {
+        "title": "Wallets integradas",
+        "desc": "Freighter y Albedo"
+      },
+      {
+        "title": "Actividad on-chain",
+        "desc": "Cada meta genera transacciones"
+      }
+    ]
+  },
+  "whoItIsFor": {
+    "title": "¿Para quién es?",
+    "users": [
+      {
+        "title": "Trabajadores informales",
+        "desc": "Sin acceso bancario tradicional"
+      },
+      {
+        "title": "Estudiantes",
+        "desc": "Metas académicas y personales"
+      },
+      {
+        "title": "Migrantes",
+        "desc": "Ahorro transfronterizo"
+      },
+      {
+        "title": "Comunidades rurales",
+        "desc": "Inclusión financiera digital"
+      }
+    ]
+  },
+  "hackathonAlignment": {
+    "title": "Validación del track",
+    "table": [
+      {
+        "criteria": "Inclusión Financiera",
+        "solution": "Acceso sin bancos tradicionales"
+      },
+      {
+        "criteria": "Tecnología Stellar",
+        "solution": "USDC + Soroban + Wallets nativas"
+      },
+      {
+        "criteria": "Impacto Social",
+        "solution": "Empoderamiento personal y financiero"
+      },
+      {
+        "criteria": "Innovación",
+        "solution": "Gamificación del ahorro con propósito"
+      }
+    ]
+  },
+  "finalSlogan": {
+    "line1": "Creé en vos.",
+    "line2": "Apostá por tu meta.",
+    "line3": "Ganá cumpliendo",
+    "cta": "Comenzar ahora"
+  },
+  "footer": {
+    "contact": "Contacto",
+    "technology": "Tecnología",
+    "region": "Región",
+    "copyright": "Ahorra con propósito."
+  }
+}
